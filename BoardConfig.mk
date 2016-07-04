@@ -30,9 +30,24 @@ ENABLE_CPUSETS := true
 
 TARGET_NO_BOOTLOADER := true
 
-# Inline kernel building
-KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/aarch64/aarch64-linux-android-4.9/bin
+# Optimizations
+CLANG_O3 := true
+STRICT_ALIASING := false
+KRAIT_TUNINGS := false
+GRAPHITE_OPTS := false
+ENABLE_GCCONLY := true
+
+# Kernel toolchain
+TARGET_GCC_VERSION_ARM64 := 4.9
 KERNEL_TOOLCHAIN_PREFIX := aarch64-linux-android-
+
+# Rom toolchain
+TARGET_GCC_VERSION_EXP := 4.9
+
+# Inline kernel building
+TARGER_KERNEL_ARCH := arm64
+TARGET_KERNEL_HEADER_ARCH := arm64
+TARGET_USES_UNCOMPRESSED_KERNEL := true
 TARGET_KERNEL_SOURCE := kernel/lge/bullhead
 TARGET_KERNEL_CONFIG := stormysea_defconfig
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
